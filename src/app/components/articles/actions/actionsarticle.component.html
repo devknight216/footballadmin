@@ -146,7 +146,7 @@
                      value="" (keyup)="searchTeam($event)" placeholder="Search Team">
               <div *ngIf="TeamsData.data && TeamsData.data.length" class="PlayersDiv">
                 <div class="player-item" *ngFor="let pl of TeamsData.data" (click)="selectTeam(pl.team_id,pl.name)">
-                  {{pl.name}}</div>
+                  {{pl.name}} {{pl.country.name}}</div>
               </div>
             </div>
           </div>

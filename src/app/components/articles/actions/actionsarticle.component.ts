@@ -147,7 +147,7 @@ export class ActionsArticleComponent implements OnInit {
         this.dropdownSettingsLeagues = {
             singleSelection: false,
             idField: 'league_id',
-            textField: 'name',
+            textField: 'complete_name',
             selectAllText: 'Select All',
             unSelectAllText: 'UnSelect All',
             // itemsShowLimit: 3,
