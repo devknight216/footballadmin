@@ -20,22 +20,43 @@ export class DashboardComponent{
     userStats: any = [];
     topNews: any = [];
 
+    Filter(e){
+      e.preventDefault();
+      let date = e.target.elements[0].value;
+      this.getUserStatsByDate(date);
+      console.log(date)
+    }
+
+    getUserStatsByDate(date){
+      this._httpService.getData('articles/userstatsbydate?date='+date).subscribe(
+        data => this.userStats = data,
+        error => alert(error),
+        () => {
+          var stats = JSON.parse(this.userStats._body);
+          const newStats = [];
+          for(const st in stats){
+              newStats.push(stats[st]);
+          }
+          this.userStats = newStats;
+        }
+      )
+    }
     getUserStats(){
         console.log('asd');
-        
+
         this._httpService.getData('articles/userstats').subscribe(
             data => this.userStats = data,
             error => alert(error),
             () => {
                 var stats = JSON.parse(this.userStats._body);
-                const newStats = [];                
+                const newStats = [];
                 for(const st in stats){
                     newStats.push(stats[st]);
                 }
                 this.userStats = newStats;
             }
         );
-       
+
     }
 
     getTopNews(){

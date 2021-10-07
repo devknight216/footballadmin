@@ -10,19 +10,32 @@
             <div class="col-6">
                 <div class="card">
                     <div class="card-block">
+
+                        <div class="float-right">
+                          <form class="filters ng-untouched ng-pristine ng-valid d-flex" #form (submit)="Filter($event)">
+                            <div class="form-group mb-0 mr-3">
+                                  <input class="form-control ng-untouched ng-pristine ng-valid" id="publish_date" name="date" placeholder="Y/M/D" type="text">
+                            </div>
+                            <div class="form-group mb-0">
+                              <input class="btn btn-primary" type="submit" value="FilterByDate">
+                            </div>
+                          </form>
+                        </div>
                         <h4 class="card-title m-0">Users</h4>
                     </div>
                     <ul class="list-group list-group-flush">
 
                         <li class="list-group-item d-flex" *ngFor="let st of userStats">
                             <div class="user-stats-column">{{st.user.first_name + ' ' + st.user.last_name}}</div>
-                            <div class="user-stats-column">სიახლეები: {{st.cnt}}</div>
-                            <div class="user-stats-column">ნახვები: {{st.user_views}}</div>
+                            <div class="user-stats-column">სიახლეები: {{st.cnt | number}}</div>
+                            <div class="user-stats-column">ნახვები: {{st.user_views | number}}</div>
                             <!-- <div class="badge badge-default ml-auto">{{st.user_views}}</div> -->
                         </li>
                     </ul>
                 </div>
             </div>
+
+
             <!-- <div class="col-6">
                 <div class="card">
                     <div class="card-block">
