@@ -22,13 +22,14 @@ export class DashboardComponent{
 
     Filter(e){
       e.preventDefault();
-      let date = e.target.elements[0].value;
-      this.getUserStatsByDate(date);
-      console.log(date)
+      let from_date = e.target.elements[0].value;
+      let to_date = e.target.elements[1].value;
+      this.getUserStatsByDate(from_date, to_date);
+      console.log(to_date)
     }
 
-    getUserStatsByDate(date){
-      this._httpService.getData('articles/userstatsbydate?date='+date).subscribe(
+    getUserStatsByDate(from_date, to_date){
+      this._httpService.getData('articles/userstatsbydate?from_date='+from_date+'&to_date='+to_date).subscribe(
         data => this.userStats = data,
         error => alert(error),
         () => {

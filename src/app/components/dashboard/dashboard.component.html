@@ -14,7 +14,12 @@
                         <div class="float-right">
                           <form class="filters ng-untouched ng-pristine ng-valid d-flex" #form (submit)="Filter($event)">
                             <div class="form-group mb-0 mr-3">
-                                  <input class="form-control ng-untouched ng-pristine ng-valid" id="publish_date" name="date" placeholder="Y/M/D" type="text">
+                                  <!-- <input class="form-control ng-untouched ng-pristine ng-valid" id="publish_date" name="date" placeholder="Y/M/D" type="text"> -->
+                                  <input name="from_date" class="form-control ng-untouched ng-pristine ng-valid" id="from_date" bsDatePicker type="date">
+                            </div>
+                            <div class="form-group mb-0 mr-3">
+                              <!-- <input class="form-control ng-untouched ng-pristine ng-valid" id="publish_date" name="date" placeholder="Y/M/D" type="text"> -->
+                              <input name="to_date" class="form-control ng-untouched ng-pristine ng-valid" id="to_date" bsDatePicker type="date">
                             </div>
                             <div class="form-group mb-0">
                               <input class="btn btn-primary" type="submit" value="FilterByDate">
